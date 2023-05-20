@@ -1,0 +1,7 @@
+{
+  "name": "health_file",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}
