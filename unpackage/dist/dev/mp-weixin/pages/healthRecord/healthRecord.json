@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "echarts": "/components/echarts-uniapp/echarts-uniapp",
+    "advice": "/components/healthAdvice"
+  }
+}

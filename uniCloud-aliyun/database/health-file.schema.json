@@ -1,0 +1,274 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"userid":{
+			"description":"唯一，用于查询，关联user-info._id",
+			"foreignKey": "user-info.userid"
+		},
+		"username": {
+			"bsonType":"string"
+		},
+		"score":{
+			"bsonType": "int",
+			"description": "健康得分",
+			"title": "健康得分",
+			"minimum": 70
+		},
+		"create_time":{
+			"description": "创建时间",
+			"title":"创建时间",
+			"bsonType": "string"
+		},
+		"data":{
+			"description": "概率最高的6个病",
+			"bsonType": "object",
+			"properties":{
+				"sickness1":{
+					"bsonType": "object",
+					"properties":{
+						"name":{
+							"bsonType": "string",
+							"description": "疾病类型：0 帕金森 1 亨廷顿 2 老年痴呆 3糖尿病足 4渐冻症 5麻痹症",
+							"enum":[
+								{
+									"text":"帕金森",
+									"value":0
+								},
+								{
+									"text":"亨廷顿",
+									"value":1
+								},
+								{
+									"text":"老年痴呆",
+									"value":2
+								},
+								{
+									"text":"糖尿病足",
+									"value":3
+								},
+								{
+									"text":"渐冻症",
+									"value":4
+								},
+								{
+									"text":"麻痹症",
+									"value":5
+								}
+							]
+						},
+						"value":{
+							"bsonType": "double",
+							"description": "得病概率"
+						}
+					}
+				},
+				"sickness2":{
+					"bsonType": "object",
+					"properties":{
+						"name":{
+							"bsonType": "string",
+							"description": "疾病类型：0 帕金森 1 亨廷顿 2 老年痴呆 3糖尿病足 4渐冻症 5麻痹症",
+							"enum":[
+								{
+									"text":"帕金森",
+									"value":0
+								},
+								{
+									"text":"亨廷顿",
+									"value":1
+								},
+								{
+									"text":"老年痴呆",
+									"value":2
+								},
+								{
+									"text":"糖尿病足",
+									"value":3
+								},
+								{
+									"text":"渐冻症",
+									"value":4
+								},
+								{
+									"text":"麻痹症",
+									"value":5
+								}
+							]
+						},
+						"value":{
+							"bsonType": "double",
+							"description": "得病概率"
+						}
+					}
+				},
+				"sickness3":{
+					"bsonType": "object",
+					"properties":{
+						"name":{
+							"bsonType": "string",
+							"description": "疾病类型：0 帕金森 1 亨廷顿 2 老年痴呆 3糖尿病足 4渐冻症 5麻痹症",
+							"enum":[
+								{
+									"text":"帕金森",
+									"value":0
+								},
+								{
+									"text":"亨廷顿",
+									"value":1
+								},
+								{
+									"text":"老年痴呆",
+									"value":2
+								},
+								{
+									"text":"糖尿病足",
+									"value":3
+								},
+								{
+									"text":"渐冻症",
+									"value":4
+								},
+								{
+									"text":"麻痹症",
+									"value":5
+								}
+							]
+						},
+						"value":{
+							"bsonType": "double",
+							"description": "得病概率"
+						}
+					}
+				},
+				"sickness4":{
+					"bsonType": "object",
+					"properties":{
+						"name":{
+							"bsonType": "string",
+							"description": "疾病类型：0 帕金森 1 亨廷顿 2 老年痴呆 3糖尿病足 4渐冻症 5麻痹症",
+							"enum":[
+								{
+									"text":"帕金森",
+									"value":0
+								},
+								{
+									"text":"亨廷顿",
+									"value":1
+								},
+								{
+									"text":"老年痴呆",
+									"value":2
+								},
+								{
+									"text":"糖尿病足",
+									"value":3
+								},
+								{
+									"text":"渐冻症",
+									"value":4
+								},
+								{
+									"text":"麻痹症",
+									"value":5
+								}
+							]
+						},
+						"value":{
+							"bsonType": "double",
+							"description": "得病概率"
+						}
+					}
+				},
+				"sickness5":{
+					"bsonType": "object",
+					"properties":{
+						"name":{
+							"bsonType": "string",
+							"description": "疾病类型：0 帕金森 1 亨廷顿 2 老年痴呆 3糖尿病足 4渐冻症 5麻痹症",
+							"enum":[
+								{
+									"text":"帕金森",
+									"value":0
+								},
+								{
+									"text":"亨廷顿",
+									"value":1
+								},
+								{
+									"text":"老年痴呆",
+									"value":2
+								},
+								{
+									"text":"糖尿病足",
+									"value":3
+								},
+								{
+									"text":"渐冻症",
+									"value":4
+								},
+								{
+									"text":"麻痹症",
+									"value":5
+								}
+							]
+						},
+						"value":{
+							"bsonType": "double",
+							"description": "得病概率"
+						}
+					}
+				},
+				"sickness6":{
+					"bsonType": "object",
+					"properties":{
+						"name":{
+							"bsonType": "string",
+							"description": "疾病类型：0 帕金森 1 亨廷顿 2 老年痴呆 3糖尿病足 4渐冻症 5麻痹症",
+							"enum":[
+								{
+									"text":"帕金森",
+									"value":0
+								},
+								{
+									"text":"亨廷顿",
+									"value":1
+								},
+								{
+									"text":"老年痴呆",
+									"value":2
+								},
+								{
+									"text":"糖尿病足",
+									"value":3
+								},
+								{
+									"text":"渐冻症",
+									"value":4
+								},
+								{
+									"text":"麻痹症",
+									"value":5
+								}
+							]
+						},
+						"value":{
+							"bsonType": "double",
+							"description": "得病概率"
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,181 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+    "bsonType": "object",
+    "required": [],
+    "permission": {
+        "read": true,
+        "create": true,
+        "update": true,
+        "delete": true
+    },
+    "properties": {
+        "_id": {
+            "description": "ID，系统自动生成"
+        },
+        "avatar": {
+            "bsonType": "string",
+            "description": "头像地址",
+            "title": "头像地址",
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "avatar_file": {
+            "bsonType": "file",
+            "description": "用file类型方便使用uni-file-picker组件",
+            "title": "头像文件",
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "userid": {
+            "bsonType": "string",
+            "description": "生成，但是不知道怎么生成，唯一，用于索引",
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "username": {
+            "bsonType": "string",
+            "title": "真实姓名",
+            "errorMessage": "只能输入中文",
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "gender": {
+            "bsonType": "int",
+            "title": "性别",
+            "description": "用户性别：0 男性 1 女性",
+            "enum": [{
+                    "text": "男",
+                    "value": 0
+                },
+                {
+                    "text": "女",
+                    "value": 1
+                }
+            ],
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "age": {
+            "bsonType": "int",
+            "title": "年龄",
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "weight": {
+            "bsonType": "int",
+            "title": "体重",
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "height": {
+            "bsonType": "int",
+            "title": "身高",
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "foot_size": {
+            "bsonType": "int",
+            "title": "鞋码",
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "mobile": {
+            "bsonType": "string",
+            "title": "手机号码",
+            "description": "紧急联系人手机号码",
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "address": {
+            "bsonType": "string",
+            "title": "地址",
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        },
+        "health_history": {
+            "bsonType": "array",
+            "title": "既往病史",
+            "enum": [{
+                    "text": "高血压",
+                    "value": 0
+                },
+                {
+                    "text": "心血管疾病",
+                    "value": 1
+                },
+                {
+                    "text": "糖尿病",
+                    "value": 2
+                },
+                {
+                    "text": "脑外伤",
+                    "value": 3
+                },
+                {
+                    "text": "中风",
+                    "value": 4
+                },
+                {
+                    "text": "营养不良",
+                    "value": 5
+                }
+            ],
+            "component": {
+                "name": "uni-data-checkbox",
+                "props": {
+                    "multiple": true
+                }
+            },
+            "permission": {
+                "read": true,
+                "create": true,
+                "update": true,
+                "delete": true
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"day1":{
+			"bsonType": "int"
+		},
+		"day2":{
+			"bsonType": "int"
+		},
+		"day3":{
+			"bsonType": "int"
+		},
+		"day4":{
+			"bsonType": "int"
+		},
+		"day5":{
+			"bsonType": "int"
+		},
+		"day6":{
+			"bsonType": "int"
+		},
+		"day7":{
+			"bsonType": "int"
+		}
+	}
+}

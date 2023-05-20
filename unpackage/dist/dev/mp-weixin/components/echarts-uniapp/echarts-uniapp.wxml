@@ -1,0 +1,1 @@
+<canvas class="echarts data-v-be623a78" type="2d" canvas-id="{{canvasId}}" id="{{canvasId}}" data-event-opts="{{[['touchstart',[['touchStart',['$event']]]],['touchmove',[['touchMove',['$event']]]],['touchend',[['touchEnd',['$event']]]]]}}" bindtouchstart="__e" bindtouchmove="__e" bindtouchend="__e"></canvas>

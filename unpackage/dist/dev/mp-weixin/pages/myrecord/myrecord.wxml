@@ -1,0 +1,1 @@
+<view><block wx:for="{{mydata}}" wx:for-item="d" wx:for-index="index" wx:key="index"><view class="flex-col list"><record vue-id="{{'4b8692a0-1-'+index}}" time="{{time[index]}}" mydata="{{d}}" bind:__l="__l"></record></view></block></view>

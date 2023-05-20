@@ -1,0 +1,31 @@
+// 文档教程: https://uniapp.dcloud.net.cn/uniCloud/schema
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"sports_name":{
+			"description": "当前运动教程的名称",
+			"bsonType": "string"
+		},
+		"vedio": {
+			"bsonType": "string",
+			"description": "视频地址",
+			"title": "视频地址"
+			}
+		},
+		"vedio_file": {
+			"bsonType": "file",
+			"description": "用file类型方便使用uni-file-picker组件",
+			"title": "视频文件"
+		}
+	}
+}
