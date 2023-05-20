@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "医疗咨询预约",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-picker": "/uni_modules/uview-ui/components/u-picker/u-picker",
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

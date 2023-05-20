@@ -5,7 +5,7 @@
     box-shadow: 0px 4.17rpx 8.33rpx #00000040;
 }
 .section {
-    background-color: #f3c284;
+    background-color: #7dbfb5;
     border-radius: 16.67rpx 0px 0px 16.67rpx;
     width: 52.08rpx;
     height: 170rpx;

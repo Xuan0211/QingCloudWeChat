@@ -20,6 +20,7 @@
         props: {
             mydata: Array,
             time: String,
+            img: String,
         },
         data() {
             return {};
@@ -39,7 +40,7 @@
                 //let currentRoute = pages[pages.length - 1].route; // 获取当前页面路由
                 //console.log(currentRoute);
                 uni.navigateTo({
-                    url: `../healthRecord/healthRecord?time=${this.time}&mydata=${encodeURIComponent(JSON.stringify(this.mydata))}&from=1`,
+                    url: `../healthRecord/healthRecord?time=${this.time}&mydata=${encodeURIComponent(JSON.stringify(this.mydata))}&from=1&img=${encodeURIComponent(JSON.stringify(this.img))}`,
                     success: res => {},
                     fail: () => {
                         //  console.log("toRecord fail");
@@ -59,7 +60,7 @@
     }
 
     .section {
-        background-color: #f3c284;
+        background-color: #7dbfb5;
         border-radius: 16.67rpx 0px 0px 16.67rpx;
         width: 52.08rpx;
         height: 170rpx;

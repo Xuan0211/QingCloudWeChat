@@ -1,7 +1,8 @@
 <template>
     <view>
+        <image class="image" src="@/static/Menu.png" @click="tomore" />
         <view v-for="(d,index) in mydata" class="flex-col list" :key="index">
-            <record :time="time[index]" :mydata="d"></record>
+            <record :time="time[index]" :mydata="d" :img="img[index]"></record>
         </view>
     </view>
 </template>
@@ -12,13 +13,26 @@
         data() {
             return {
                 mydata: [],
-                time: []
+                time: [],
+                img: [],
             }
         },
         components: {
             record
         },
-        methods: {},
+        methods: {
+            tomore() {
+                console.log("to more");
+                uni.navigateTo({
+                    url: '../book/book',
+                    success: res => {},
+                    fail: () => {
+                        console.log("to more fail");
+                    },
+                    complete: () => {}
+                });
+            }
+        },
         onLoad() {
             uni.getStorage({
                 key: 'isLog',
@@ -51,6 +65,14 @@
                         for (i = 0; i < e.result.data.length; i++) {
                             let d = e.result.data[i];
                             that.time.push(d.create_time);
+                            if (d.img != undefined) {
+                                that.img.push(d.img);
+                            } else {
+                                console.log("push default");
+                                that.img.push(
+                                    "https://mawxuan.oss-cn-hangzhou.aliyuncs.com/img/path/Path/pd007_1slow1.txtColoredAllCOP.png"
+                                );
+                            }
                             let j;
                             let nowdata = [];
                             for (j = 1; j < 7; j++) {
@@ -78,5 +100,11 @@
 <style>
     .list {
         padding: 15rpx 15rpx;
+    }
+
+    .image {
+        width: 700rpx;
+        margin: 20rpx 25rpx;
+        height: 300rpx;
     }
 </style>

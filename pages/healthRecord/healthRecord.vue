@@ -1,5 +1,5 @@
 <template>
-    <view class="flex-col page">
+    <view>
         <view class="flex-col flex-auto group_2">
             <view class="flex-col items-start relative group">
                 <view class="section"></view>
@@ -16,37 +16,42 @@
                     <text class="text_4">健康报告</text>
                     <text class="font_1 text_5">生成于{{date}} ByQing Cloud</text>
                 </view>
+                <image :src="img" class="image"></image>
                 <text class="self-start font_2 text_6">疾病风险预估</text>
-                <view class="container">
-                    <view class="container-wrap">
-                        <echarts ref="echarts" :option="option" canvasId="echarts"></echarts>
-                    </view>
+                <view class="pieChart">
+                    <echarts ref="echarts" :option="option" canvasId="echarts"></echarts>
                 </view>
                 <view class="flex-col group_12 space-y-20">
                     <text class="self-start font_2 text_18">健康建议</text>
-                    <view v-for="(d,index) in option.series[0].data" :key="index">
+                    <view v-for="(d,index) in mydata" :key="index">
                         <advice :mydata="d"></advice>
                     </view>
                 </view>
             </view>
         </view>
     </view>
-
 </template>
+
 <script>
     import advice from '@/components/healthAdvice.vue';
     import getDateTime from '@/common/getdateTime.js';
     import convertChineseDate from '@/common/ChineseDate.js';
+
     export default {
         components: {
             advice
         },
         data() {
             return {
+                img: "https://mawxuan.oss-cn-hangzhou.aliyuncs.com/img/path/Path/pd007_1slow1.txtColoredAllCOP.png",
                 from: false,
                 score: 96, //健康得分
                 date: "2022/2/11", //日期
-                option: {
+                option: {},
+                mydata: [],
+                myoption: {
+                    width: 450,
+                    height: 450,
                     visualMap: {
                         type: 'piecewise',
                         pieces: [{
@@ -70,6 +75,7 @@
                     },
                     series: [{
                         type: 'pie',
+                        silent: true,
                         radius: [30, 160], //前一个数据代表内径，后一格数据代表外径
                         left: -70,
                         top: 10,
@@ -116,79 +122,33 @@
                 }
             }
         },
-        onReady() {
-
-        },
         onLoad(option) {
             console.log("from is")
             console.log(option.from);
             console.log("data is");
             console.log(JSON.parse(decodeURIComponent(option.mydata)));
             let ans = 1.0;
-            if (option.from == 1) {
-                this.option.series[0].data = JSON.parse(decodeURIComponent(option.mydata));
-                this.option.series[0].data.forEach(d => {
-                    return ans *= (1 - d.value / 100)
-                });
-                this.date = option.time;
-            } else {
-                this.from = true;
-                this.date = getDateTime.dateTimeStr('y/m/d h:i')
-                //计算健康得分
-                this.option.series[0].data.forEach(d => {
-                    let t = Math.random();
-                    if (t < 0.7) {
-                        d.value = Math.ceil(Math.random() * 200) / 10;
-                    } else {
-                        if (t < 0.95) {
-                            d.value = 20 + Math.ceil(Math.random() * 100) / 10;
-                        } else {
-                            d.value = 30 + Math.ceil(Math.random() * 100) / 10;
-                        }
-                    }
-                    return ans *= (1 - d.value / 100)
-                });
-            }
+            let that = this;
+            that.img = JSON.parse(decodeURIComponent(option.img));
+            that.myoption.series[0].data = JSON.parse(decodeURIComponent(option.mydata));
+            that.mydata = JSON.parse(decodeURIComponent(option.mydata));
+            that.mydata.forEach(d => {
+                return ans *= (1 - d.value / 100)
+            });
+            that.date = option.time;
             //捞健康得分
-            this.score = Math.ceil(Math.sqrt(Math.sqrt(ans * 100) * 10) * 10);
+            that.score = Math.ceil(Math.sqrt(Math.sqrt(ans * 100) * 10) * 10);
             //排序数组
-            this.option.series[0].data.sort((a, b) => {
+            that.myoption.series[0].data.sort((a, b) => {
                 return b.value - a.value
             });
         },
-        mounted() {
-
-        },
-        methods: {}
-    }
-</script>
-<script module="echarts" lang="renderjs">
-    let myChart
-    export default {
-
-        mounted() {
-            //初始化玫瑰图
-            if (typeof window.echarts === 'function') {
-                this.initEcharts()
-            } else {
-                // 动态引入较大类库避免影响页面展示
-                const script = document.createElement('script')
-                // view 层的页面运行在 www 根目录，其相对路径相对于 www 计算
-                script.src = 'static/echarts.js'
-                script.onload = this.initEcharts.bind(this)
-                document.head.appendChild(script)
-            }
-        },
-        methods: {
-            initEcharts() {
-                myChart = echarts.init(document.getElementById('echarts'))
-                // 观测更新的数据在 view 层可以直接访问到
-                myChart.setOption(this.option)
-            }
+        onReady() {
+            this.option = this.myoption;
+            console.log(this.img)
         }
     }
 </script>
-
 <style>
     .page {
         background-color: #ffffff;
@@ -397,7 +357,7 @@
     }
 
     .pieChart {
-        width: 750rpx;
+        width: 670rpx;
         height: 800rpx;
         padding: 0 40rpx;
         margin-top: 50rpx;
@@ -406,5 +366,9 @@
     .button {
         gap: 20rpx;
         margin: 0 50rpx;
+    }
+
+    .image {
+        width: 800rpx;
     }
 </style>

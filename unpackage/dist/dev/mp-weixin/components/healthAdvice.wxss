@@ -48,7 +48,7 @@
 .font_11 {
     font-size: 43.75rpx;
     font-family: Microsoft YaHei;
-    line-height: 42.71rpx;
+    line-height: 47.71rpx;
     font-weight: 700;
     color: #333333;
     text-align: right;

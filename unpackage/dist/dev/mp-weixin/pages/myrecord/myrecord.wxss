@@ -2,4 +2,9 @@
 .list {
     padding: 15rpx 15rpx;
 }
+.image {
+    width: 700rpx;
+    margin: 20rpx 25rpx;
+    height: 300rpx;
+}
 

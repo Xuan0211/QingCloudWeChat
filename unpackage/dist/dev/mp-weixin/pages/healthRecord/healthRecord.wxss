@@ -174,7 +174,7 @@
     margin-top: 16.67rpx;
 }
 .pieChart {
-    width: 750rpx;
+    width: 670rpx;
     height: 800rpx;
     padding: 0 40rpx;
     margin-top: 50rpx;
@@ -182,5 +182,8 @@
 .button {
     gap: 20rpx;
     margin: 0 50rpx;
+}
+.image {
+    width: 800rpx;
 }
 
