@@ -19,7 +19,7 @@
         }, {
             "path": "pages/healthRecord/healthRecord",
             "style": {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "健康档案",
                 "enablePullDownRefresh": false
             }
 
@@ -28,6 +28,13 @@
             "path": "pages/book/book",
             "style": {
                 "navigationBarTitleText": "医疗咨询预约",
+                "enablePullDownRefresh": false
+            }
+
+        }, {
+            "path": "pages/more/more",
+            "style": {
+                "navigationBarTitleText": "健康建议",
                 "enablePullDownRefresh": false
             }
 

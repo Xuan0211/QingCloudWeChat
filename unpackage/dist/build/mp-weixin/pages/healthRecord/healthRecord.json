@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "健康档案",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "echarts": "/components/echarts-uniapp/echarts-uniapp",

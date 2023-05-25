@@ -102,7 +102,7 @@ var components
 try {
   components = {
     echarts: function () {
-      return Promise.all(/*! import() | components/echarts-uniapp/echarts-uniapp */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/echarts-uniapp/echarts-uniapp")]).then(__webpack_require__.bind(null, /*! @/components/echarts-uniapp/echarts-uniapp.vue */ 209))
+      return Promise.all(/*! import() | components/echarts-uniapp/echarts-uniapp */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/echarts-uniapp/echarts-uniapp")]).then(__webpack_require__.bind(null, /*! @/components/echarts-uniapp/echarts-uniapp.vue */ 217))
     },
   }
 } catch (e) {
@@ -159,7 +159,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
@@ -168,9 +168,10 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _getdateTime = _interopRequireDefault(__webpack_require__(/*! @/common/getdateTime.js */ 190));
 var _ChineseDate = _interopRequireDefault(__webpack_require__(/*! @/common/ChineseDate.js */ 191));
+var _vue = __webpack_require__(/*! vue */ 25);
 var advice = function advice() {
   __webpack_require__.e(/*! require.ensure | components/healthAdvice */ "components/healthAdvice").then((function () {
-    return resolve(__webpack_require__(/*! @/components/healthAdvice.vue */ 228));
+    return resolve(__webpack_require__(/*! @/components/healthAdvice.vue */ 226));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {
@@ -187,7 +188,9 @@ var _default = {
       //日期
       option: {},
       mydata: [],
+      isIOS: false,
       myoption: {
+        disableTouch: true,
         width: 450,
         height: 450,
         visualMap: {
@@ -277,9 +280,16 @@ var _default = {
   onReady: function onReady() {
     this.option = this.myoption;
     console.log(this.img);
+    var platform = uni.getSystemInfoSync().platform;
+    if (platform == 'ios') {
+      this.isIOS = true;
+      console.log("isIOS");
+    }
+    ;
   }
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 

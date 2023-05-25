@@ -144,7 +144,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var record = function record() {
   __webpack_require__.e(/*! require.ensure | components/record */ "components/record").then((function () {
-    return resolve(__webpack_require__(/*! @/components/record.vue */ 202));
+    return resolve(__webpack_require__(/*! @/components/record.vue */ 210));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var _default = {
@@ -198,10 +198,14 @@ var _default = {
         console.log(res.data);
         console.log("userid == ".concat(res.data));
         db.collection('health-file').where("userid == \"".concat(res.data, "\"")).get().then(function (e) {
-          console.log(e.result.data);
+          var data = e.result.data.sort(function (a, b) {
+            return b.create_time.localeCompare(a.create_time);
+          });
+          console.log("data is");
+          console.log(data);
           var i;
-          for (i = 0; i < e.result.data.length; i++) {
-            var d = e.result.data[i];
+          for (i = 0; i < data.length; i++) {
+            var d = data[i];
             that.time.push(d.create_time);
             if (d.img != undefined) {
               that.img.push(d.img);

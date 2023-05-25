@@ -186,4 +186,12 @@
 .image {
     width: 800rpx;
 }
+.echart-mask {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0);
+    width: 750rpx;
+    height: 4200rpx;
+    top: 0rpx;
+    opacity: 0.5;
+}
 

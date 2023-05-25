@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/myrecord/myrecord",
     "pages/healthRecord/healthRecord",
-    "pages/book/book"
+    "pages/book/book",
+    "pages/more/more"
   ],
   "subPackages": [],
   "window": {

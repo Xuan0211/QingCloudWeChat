@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "健康建议",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "u-toast": "/uni_modules/uview-ui/components/u-toast/u-toast"
+  }
+}

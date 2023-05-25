@@ -60,10 +60,14 @@
                     console.log(res.data);
                     console.log(`userid == ${res.data}`);
                     db.collection('health-file').where(`userid == "${res.data}"`).get().then((e) => {
-                        console.log(e.result.data);
+                        let data = e.result.data.sort((a, b) => {
+                            return b.create_time.localeCompare(a.create_time);
+                        });
+                        console.log("data is");
+                        console.log(data);
                         let i;
-                        for (i = 0; i < e.result.data.length; i++) {
-                            let d = e.result.data[i];
+                        for (i = 0; i < data.length; i++) {
+                            let d = data[i];
                             that.time.push(d.create_time);
                             if (d.img != undefined) {
                                 that.img.push(d.img);

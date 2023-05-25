@@ -183,43 +183,30 @@ var _default = {
   methods: {
     toScan: function toScan() {
       var that = this;
-      uni.setStorage({
-        key: 'userId',
-        data: "000001",
-        success: function success() {
-          uni.navigateTo({
-            url: '../myrecord/myrecord',
-            success: function success(res) {},
-            fail: function fail() {},
-            complete: function complete() {}
+      uni.scanCode({
+        success: function success(res) {
+          uni.showToast({
+            title: '配对成功'
+          });
+          uni.setStorage({
+            key: 'userId',
+            data: '000001',
+            success: function success() {
+              console.log('条码类型：' + res.scanType);
+              console.log('条码内容：' + res.result);
+              that.$forceUpdate();
+              that.$set(that, 'userId', res.result);
+              that.type = "子女端";
+              if (res.result == '百度大脑' || '000001' || '000002') uni.navigateTo({
+                url: '../myrecord/myrecord',
+                success: function success(res) {},
+                fail: function fail() {},
+                complete: function complete() {}
+              });
+            }
           });
         }
       });
-      /*
-      uni.scanCode({
-          success: function(res) {
-              uni.showToast({
-                  title: '配对成功'
-              });
-              uni.setStorage({
-                  key: 'userId',
-                  data: that.userId,
-                  success() {
-                      console.log('条码类型：' + res.scanType);
-                      console.log('条码内容：' + res.result);
-                      that.$forceUpdate();
-                      that.$set(that, 'userId', res.result);
-                      that.type = "子女端";
-                      uni.navigateTo({
-                          url: '../record/record',
-                          success: res => {},
-                          fail: () => {},
-                          complete: () => {}
-                      });
-                  }
-              })
-           }
-      });*/
     }
   },
   mounted: function mounted() {},

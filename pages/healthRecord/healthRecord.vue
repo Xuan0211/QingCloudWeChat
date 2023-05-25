@@ -29,6 +29,7 @@
                 </view>
             </view>
         </view>
+        <cover-view v-if="isIOS" class="echart-mask"></cover-view>
     </view>
 </template>
 
@@ -36,6 +37,9 @@
     import advice from '@/components/healthAdvice.vue';
     import getDateTime from '@/common/getdateTime.js';
     import convertChineseDate from '@/common/ChineseDate.js';
+    import {
+        ReactiveFlags
+    } from "vue";
 
     export default {
         components: {
@@ -49,7 +53,9 @@
                 date: "2022/2/11", //日期
                 option: {},
                 mydata: [],
+                isIOS: false,
                 myoption: {
+                    disableTouch: true,
                     width: 450,
                     height: 450,
                     visualMap: {
@@ -146,6 +152,11 @@
         onReady() {
             this.option = this.myoption;
             console.log(this.img)
+            let platform = uni.getSystemInfoSync().platform;
+            if (platform == 'ios') {
+                this.isIOS = true;
+                console.log("isIOS");
+            };
         }
     }
 </script>
@@ -370,5 +381,14 @@
 
     .image {
         width: 800rpx;
+    }
+
+    .echart-mask {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0);
+        width: 750rpx;
+        height: 4200rpx;
+        top: 0rpx;
+        opacity: 0.5;
     }
 </style>

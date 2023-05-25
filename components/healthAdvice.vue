@@ -1,6 +1,7 @@
 <template>
     <view class="flex-col section_13 space-y-8"
-        :style="{'background-image':'linear-gradient(89.4deg,'+colorBankBac[level]+' -14.5%, #ffffff00 133.3%)'}">
+        :style="{'background-image':'linear-gradient(89.4deg,'+colorBankBac[level]+' -14.5%, #ffffff00 133.3%)'}"
+        @click="tomore">
         <view class="flex-row justify-between items-center">
             <view class="group_13">
                 <text class="font_9">{{nameBank[name]}}</text>
@@ -22,6 +23,17 @@
         name: "healthAdvice",
         props: {
             mydata: Object
+        },
+        methods: {
+            tomore() {
+                console.log("tomore");
+                uni.navigateTo({
+                    url: `../more/more?type=${this.name}`,
+                    success: res => {},
+                    fail: () => {},
+                    complete: () => {}
+                });
+            }
         },
         data() {
             return {

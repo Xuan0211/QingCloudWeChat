@@ -22,7 +22,7 @@
                     <image @click="toScan" class="image_3"
                         src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/62f8bcea5a7e3f03100a0ed5/62f8bd5e689f2800114ed71c/16812272435991926663.png" />
                 </view>
-                <image src="../../static/E02透明1.png" class="myphoto"></image>
+                <image src="../../static/E02.png" class="myphoto"></image>
             </view>
         </view>
     </view>
@@ -40,19 +40,6 @@
         methods: {
             toScan() {
                 let that = this;
-                uni.setStorage({
-                    key: 'userId',
-                    data: "000001",
-                    success() {
-                        uni.navigateTo({
-                            url: '../myrecord/myrecord',
-                            success: res => {},
-                            fail: () => {},
-                            complete: () => {}
-                        });
-                    }
-                });
-                /*
                 uni.scanCode({
                     success: function(res) {
                         uni.showToast({
@@ -60,24 +47,25 @@
                         });
                         uni.setStorage({
                             key: 'userId',
-                            data: that.userId,
+                            data: '000001',
                             success() {
                                 console.log('条码类型：' + res.scanType);
                                 console.log('条码内容：' + res.result);
                                 that.$forceUpdate();
                                 that.$set(that, 'userId', res.result);
                                 that.type = "子女端";
-                                uni.navigateTo({
-                                    url: '../record/record',
-                                    success: res => {},
-                                    fail: () => {},
-                                    complete: () => {}
-                                });
+                                if (res.result == '百度大脑' || '000001' || '000002')
+                                    uni.navigateTo({
+                                        url: '../myrecord/myrecord',
+                                        success: res => {},
+                                        fail: () => {},
+                                        complete: () => {}
+                                    });
                             }
                         })
 
                     }
-                });*/
+                });
             },
 
         },
